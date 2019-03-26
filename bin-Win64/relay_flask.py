@@ -140,7 +140,7 @@ def close(channel):
 def suckandspin(device_id):
 	try:
 		print("request IP: ",request.remote_addr)
-		if len(devids) != 0 and request.remote_addr == "154.16.244.31":
+		if len(devids) != 0 and request.remote_addr == "15.1.24.3":
 			# Test any 1st found dev .
 			print("Testing relay with ID=" + devids[int(device_id)])
 			openDevById(devids[int(device_id)])
@@ -149,7 +149,7 @@ def suckandspin(device_id):
 			if st < 0:  fail("Bad status bitmask")
 			print("Relay num ch=%d state=%x" % (numch, st))
 
-			if(device_id == "0"): # 24D
+			if(device_id == "0"):
 				print("device_id : ", device_id)
 				ret = L.usb_relay_device_open_one_relay_channel(hdev, CHANNEL_SUCK)
 				print("open : ",ret)
@@ -163,7 +163,7 @@ def suckandspin(device_id):
 				ret = L.usb_relay_device_close_one_relay_channel(hdev, CHANNEL_SPIN)
 				print("close : ",ret)
 				time.sleep(1)
-			elif(device_id == "1"): # Bogel
+			elif(device_id == "1"): 
 				print("device_id : ", device_id)
 				ret = L.usb_relay_device_open_one_relay_channel(hdev, 1)
 				print("open : ",ret)
